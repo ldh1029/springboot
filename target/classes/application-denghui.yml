@@ -1,0 +1,136 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://192.168.1.5:3306/gfb0810?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false&&useSSL=true&&zeroDateTimeBehavior=round
+    username: gfb0810
+    password: GOFOBAO@0701.
+    driver-class-name: com.mysql.jdbc.Driver
+
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.MySQL5Dialect
+  redis:
+    host: 192.168.1.5
+    password: gofobao@123
+    port: 6379
+    database: 0
+
+  rabbitmq:
+    host: 192.168.1.121
+    port: 5672
+    username: gofobao
+    password: gofobao
+  mail:
+    host: smtp.qq.com
+    port: 587
+    username: service@gofobao.com
+    password: gofobaochina123
+    default-encoding: UTF-8
+  thymeleaf:
+   mode: LEGACYHTML5
+   cache: false
+  http:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 20MB
+      enabled: true
+server:
+  port: 80
+jwt: #JWT 安全配置
+  header: Authorization
+  secret: WWW.gOf0b@o.c0m@0701
+  expiration: 2592000
+  prefix: Bearer
+#七牛
+qiniu:
+  domain: http://test.img.gofobao.com/
+  bucket: test
+  ak: yevGNMoheNL4EGIencz8E-ohrPzMqLwchW9SvX9e
+  sk: GjGZAJBUpe8UzPoWmKeKBPSi7Kq_IshmuW-UC89o
+
+windmill: #风车理财
+  des-key: 2l0IYbNnRcShWOM9Q5Ej0A3gCEP07LBS #des加密key值
+  request-address: http://121.42.52.42 #风车理财请求地址
+  short-name: gfb #风车理财分配给平台的简称
+  from: wrb #风车理财简称
+  local-des-key : 2l0IYbNnRcShWOM9Q5Ej0A3gCGOFOBAO #和风车理财交互时 平台的关键字段加密key值
+  notify-address:  http://121.42.52.42/wrb/ws_info_call_back.json  #通知风车理财接口
+  online-date: 2017-10-1
+  ips: 121.42.52.42
+
+starfire: # 星火
+  key: gofobao_hyfbGxll  #asc加密key值
+  initVector: gofobao_hyfbGxll  #
+  channelCode: gofobao_xhzt   #星火分配渠道简称
+  notify_url: http://xh.xeenho.cc/openapi/user_bind/notify/
+  ips: 120.76.29.193,120.76.31.153,120.76.204.32,120.77.12.124
+wheel:
+  short-name: gfb
+  secret-key: dsDaNZY7
+  domain: promotion-test.chelun.com
+  check_ticket_url: /Financial/ps_check_ticket
+
+
+jixin: #银行存管
+  keysPassword: guangfubao_uat@2016 #私钥密码
+  url: http://uat.gofobao.com/escrow   #即信服务器路径
+  htmlUrl: https://access.credit2go.cn/escrow  #即信服务器路径
+  file-url: https://uat.credit2go.cn/escrow/file/download #文件请求下载链接
+  save-file-path: D:/statistice   #文件本地保存的路径
+  version: 10 #版本号
+  instCode: "00960001" #机构代码
+  bankCode: "30050000" #交易机构代码
+  product-no: "0105" # 产品编号
+  bank-no: "3005" #产品编号
+  query-time-init: "20170430" # 与存管系统查询时间
+  crt-path:  # crt证书路径
+  p12-path:  # p12证书路径
+  ftp-port: 5132 # ftp文件下载端口
+  ftp-host: sftp.credit2go.cn # ftp远程地址
+  ftp-username: guangfubao # ftp用户名
+  ftp-password: A85yL0p9ZyxIj # ftp密码
+gofobao:
+  dev: true # 开发环境
+  javaDomain: http://p6k30gs.hk1.mofasuidao.cn
+  h5Domain:  http://ng.hk1.mofasuidao.cn
+  imageDomain : https://api.gofobao.com
+  pcDomain: http://gofobao.oicp.io/
+  #adminDomain: http://m7ocvas9.gofobao.com  #管理员后台地址
+  adminDomain: http://gofobao-admin.dev
+  captcha: false # 全站是否开启图形验证码验证
+  close-email-send: true # 关闭邮箱发送
+  close-phone-send: true # 关闭短信发送
+  close-jixin-log: true # 关闭即信log
+  aliyun-bankinfo-url: http://jisuyhkgsd.market.alicloudapi.com/bankcard/query
+  aliyun-bankaps-url: http://cnaps.market.alicloudapi.com/lianzhuo/querybankaps
+  aliyun-bankinfo-appcode: 1fa8442456704a4686d950b099c188b9 #阿里云api管理中的appcode
+  flowConfig: #易蜂享
+    url: http://xc.aipipi.mobi/trafgatewate/apply.do
+    id: 10
+    key: 1b5e8124fe
+  jiguang:
+    AppKey: ce7616b0fc76f923a1b53b30
+    MasterSecre : d4b742ae7cc3e4be1d6a95c3
+logging:
+  config: classpath:logback-spring.xml
+security:
+  user:
+    name: user
+    password: 123456
+#logging:
+#  file: /Users/Max/logs/logback.log
+#  pattern:
+#    console: "%d %-5level %logger : %msg%n"
+#  level:
+#    org.springframework.web: info
+#    org.hibernate: info
+#    com.gofobao: info
+#    root: info
+
